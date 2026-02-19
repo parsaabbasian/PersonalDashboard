@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import Logo from './Logo'
 
 export default function Navbar() {
     const { data: session } = useSession()
@@ -9,8 +10,9 @@ export default function Navbar() {
     return (
         <nav className="glass sticky px-8 py-4">
             <div className="container flex items-center justify-between" style={{ maxWidth: '1200px', margin: '0 auto', padding: 0 }}>
-                <Link href="/" className="font-bold text-xl bg-gradient-text">
-                    Personal Portfolio
+                <Link href="/" className="font-bold text-xl flex items-center gap-3">
+                    <Logo className="w-8 h-8" />
+                    <span className="bg-gradient-text">PA Dashboard</span>
                 </Link>
                 <div className="flex items-center gap-4">
                     <Link href="/projects" className="py-2 px-4 hover:text-accent transition-colors">Projects</Link>
