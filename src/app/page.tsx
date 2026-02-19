@@ -1,66 +1,33 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container py-20">
+      <section className="text-center mb-8 animate-fade-in">
+        <h1 className="mb-4 bg-gradient-text" style={{ fontSize: '4rem' }}>Welcome</h1>
+        <p className="text-xl mx-auto" style={{ maxWidth: '600px', marginBottom: '2rem' }}>
+          A centralized hub for my projects, research notes, and creative work.
+          <br />
+          Manage content securely through the admin dashboard.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link href="/projects" className="btn btn-primary">View Projects</Link>
+          <Link href="/research" className="btn btn-ghost" style={{ borderColor: 'hsl(var(--border))', border: '1px solid' }}>Read Research</Link>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div className="grid grid-cols-2 gap-8" style={{ marginTop: '4rem' }}>
+        <div className="card">
+          <h2 className="text-2xl mb-4">Featured Work</h2>
+          <p>Explore a collection of my engineering projects and designs.</p>
+          <Link href="/projects" className="text-primary font-bold hover:text-accent">Browse Projects &rarr;</Link>
         </div>
-      </main>
+        <div className="card">
+          <h2 className="text-2xl mb-4">Research & Notes</h2>
+          <p>Technical deep dives, experiments, and ongoing research.</p>
+          <Link href="/research" className="text-primary font-bold hover:text-accent">Read Notes &rarr;</Link>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
